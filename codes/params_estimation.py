@@ -12,7 +12,7 @@ from sklearn.linear_model import LinearRegression as linreg
 # ------------------------------ Estimation of the normal influx rate of Im. cells R  ------------------------------
 # ------------------------------------------------------------------------------------------------------------------
 
-data_Tcells = np.genfromtxt('tumor_volume_vs_Im_cells_rate.csv', delimiter=',')
+data_Tcells = np.genfromtxt('../data/tumor_volume_vs_Im_cells_rate.csv', delimiter=',')
 x_Tcells_tmp = data_Tcells[:, 0]*1e9
 y_Tcells_tmp = data_Tcells[:, 1]*1e6
 
@@ -92,7 +92,7 @@ plt.legend()
 # ---------------- Estimation of the tumor growth parameters (the division rate a and growth rate V)----------------
 # ------------------------------------------------------------------------------------------------------------------
 
-data = pd.read_csv('tumor_time_to_event_data.csv')
+data = pd.read_csv('../data/tumor_time_to_event_data.csv')
 # data = pd.read_csv('Vero_data_tumor_volume_Allmice_means.csv')
 
 # function for retreiving each tumor evolution data from each cinetic
