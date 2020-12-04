@@ -36,3 +36,9 @@ the following python version must be installed to run to source codes:
 4. The global sensitivity analysis of the tumor mass at equilibrium
 - the file `sensitivity_analysis_withRealParameters.py`
 - the file `sensitivity_analysis_results_postprocessing.py`
+
+# Data
+the data used for the parameters estimation are available in the directory `data`
+the data file `tumor_volume_vs_Im_cells_rate.csv` is used to estimate the normal
+influx rate R and the data file `tumor_time_to_event_data.csv` is used to estimate 
+the tumor growth parameters. 
