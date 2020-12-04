@@ -24,12 +24,15 @@ the following python version must be installed to run to source codes:
 - the file `2DTumorImmuneInteraction.py` 
 - the file `2DTumorImmuneInteraction_withRealParameters.py`
 
-2. The power-dichotomy algorithm
+2. Estimation the model parameters
+- the file `params_estimation.py`
+
+3. The power-dichotomy algorithm
 - the file `power_dichotomy_algorithm.py`
 - the file `power_dichotomy_algorithm_withRealParameters.py`
 - the file `power_dichotomy_algorithm_withRealParameters_multSimu.py`
 - the file `power_dichotomy_algorithm_withRealParameters_multSimu_matrix.py`
 
-3. The global sensitivity analysis of the tumor mass at equilibrium
+4. The global sensitivity analysis of the tumor mass at equilibrium
 - the file `sensitivity_analysis_withRealParameters.py`
 - the file `sensitivity_analysis_results_postprocessing.py`
