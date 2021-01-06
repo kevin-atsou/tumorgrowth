@@ -262,67 +262,6 @@ Tol = 10000
 Strength = 0.
 n = 0
 
-# -------------------- Functions for testing the numerical methods ---------------------
-# C_test = CellVariable(name='$C$', mesh=mesh, value=0.)
-# C_test.setValue((1-mo(x))*numerix.exp(-mo(x)))
-#
-# phi_test = CellVariable(name='$\phi$', mesh=mesh, value=0.)
-# phi_test.setValue(1 - 2*mo(x))
-# phi_test.setValue(np.sin(xt)*np.sin(yt) - 4*np.sin(0.5)**4)
-# phi_test.setValue((1./3.)*mo(x)**3 - 0.5*mo(x)**2)
-# phi_test.setValue((1./36.)*mo(x)**4 + (1./3.)*mo(x)**3 - (10./9.)*mo(x))
-
-# Source = CellVariable(name='$C$', mesh=mesh, value=0.)
-
-# ---------------------------------------------- Newton's Method -----------------------------------------------
-
-mu_new = 0.
-mu_old = 100.
-F_mu = 10.
-F_mu_p = 0.
-mus = []
-# while np.abs(mu_new - mu_old) > eps:
-while np.abs(F_mu) > eps:
-    mus.append([mu_old])
-    bE = (mesK * mu_old * pf * S.value).T
-    E_new = la.spsolve(-D * (aDiffE.tocsc()) - params.chi * mu_old * aConVE + Id.multiply(mesK * gF), bE)
-    E.setValue(E_new)
-    E.updateOld()
-    # -------------------------Solve the Tumor Growth equation---------------------------
-    Strength = numerix.sum(mesK * delta.value * E.value)
-    F_mu = Strength - np.abs(Lambda)
-
-    bE_p = (mesK * mu_old * pf * S.value).T + aConVE.dot(E.value)
-    E_p_new = la.spsolve(-D * (aDiffE.tocsc()) - params.chi * mu_old * aConVE + Id.multiply(mesK * gF), bE_p)
-    E_p.setValue(E_p_new)
-    E_p.updateOld()
-
-    F_mu_p = numerix.sum(mesK * delta.value * E_p.value)
-    # F_mu = Strength - Lambda
-
-    mu_new = np.float64(mu_old - F_mu/F_mu_p)
-
-    print('mu_k+1 - mu_k: ', np.abs(mu_new - mu_old), 'etape: ', n, 'mu_k: ', mu_old)
-    mu_old = mu_new
-    # test_case_results = np.append(test_case_results, np.asarray((Strength,
-    #                                                              # dt,
-    #                                                              # dz,
-    #                                                              # mu0_new.value * Vect,
-    #                                                              E.value,
-    #                                                              phi.value), dtype=test_case_results.dtype))
-
-
-plt.title("$\int_{\Omega} \delta(y) C_{\mu}(y)dy$")
-plt.xlabel("$\mu$")
-plt.grid()
-plt.plot(mus)
-plt.legend()
-
-# last mu = 1.7554120763635088
-# 1.15576025235
-
-
-
 # ---------------------------------------------- Dichotomy Method -----------------------------------------------
 
 mu_a = 0.
@@ -359,6 +298,61 @@ while mu_b - mu_a > eps:
 
     print (mu)
 
+print('The tumor mass at equilibrium is: {0}'.format(mu))
 
-# 5.3063631592230722
 
+# -------------------- Functions for testing the numerical methods ---------------------
+# C_test = CellVariable(name='$C$', mesh=mesh, value=0.)
+# C_test.setValue((1-mo(x))*numerix.exp(-mo(x)))
+#
+# phi_test = CellVariable(name='$\phi$', mesh=mesh, value=0.)
+# phi_test.setValue(1 - 2*mo(x))
+# phi_test.setValue(np.sin(xt)*np.sin(yt) - 4*np.sin(0.5)**4)
+# phi_test.setValue((1./3.)*mo(x)**3 - 0.5*mo(x)**2)
+# phi_test.setValue((1./36.)*mo(x)**4 + (1./3.)*mo(x)**3 - (10./9.)*mo(x))
+
+# Source = CellVariable(name='$C$', mesh=mesh, value=0.)
+
+# ------------------- Newton's Method to estimate the tumor mass at equilibrium ----------------------------
+
+#mu_new = 0.
+#mu_old = 100.
+#F_mu = 10.
+#F_mu_p = 0.
+#mus = []
+## while np.abs(mu_new - mu_old) > eps:
+#while np.abs(F_mu) > eps:
+#    mus.append([mu_old])
+#    bE = (mesK * mu_old * pf * S.value).T
+#    E_new = la.spsolve(-D * (aDiffE.tocsc()) - params.chi * mu_old * aConVE + Id.multiply(mesK * gF), bE)
+#    E.setValue(E_new)
+#    E.updateOld()
+#    # -------------------------Solve the Tumor Growth equation---------------------------
+#    Strength = numerix.sum(mesK * delta.value * E.value)
+#    F_mu = Strength - np.abs(Lambda)
+
+#    bE_p = (mesK * mu_old * pf * S.value).T + aConVE.dot(E.value)
+#    E_p_new = la.spsolve(-D * (aDiffE.tocsc()) - params.chi * mu_old * aConVE + Id.multiply(mesK * gF), bE_p)
+#    E_p.setValue(E_p_new)
+#    E_p.updateOld()
+
+#    F_mu_p = numerix.sum(mesK * delta.value * E_p.value)
+    # F_mu = Strength - Lambda
+
+#    mu_new = np.float64(mu_old - F_mu/F_mu_p)
+
+#    print('mu_k+1 - mu_k: ', np.abs(mu_new - mu_old), 'etape: ', n, 'mu_k: ', mu_old)
+#    mu_old = mu_new
+    # test_case_results = np.append(test_case_results, np.asarray((Strength,
+    #                                                              # dt,
+    #                                                              # dz,
+    #                                                              # mu0_new.value * Vect,
+    #                                                              E.value,
+    #                                                              phi.value), dtype=test_case_results.dtype))
+
+
+#plt.title("$\int_{\Omega} \delta(y) C_{\mu}(y)dy$")
+#plt.xlabel("$\mu$")
+#plt.grid()
+#plt.plot(mus)
+#plt.legend()
