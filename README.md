@@ -17,6 +17,7 @@ the source codes are supported by all OS
 ### Python Dependencies 
 the following python version must be installed to run to source codes:
 - python 3.7
+
 the sources codes depend on the following Python packages
 - fipy (version 3.3)
 - gmsh (version 3.0.6)
@@ -54,4 +55,4 @@ the sources codes depend on the following Python packages
 
 # License
 
-This project is covered under the **Apache 2.0 License**.
+This project is covered under the **GNU General Public License v3.0**.
