@@ -1,12 +1,23 @@
 # tumorgrowth - Analysis of the equilibrium phase in immune-controlled tumors to predict best strategies for cancer treatment
 
-Source codes to compute and perform sensitivity analysis of the stationary profile in a size and space structured tumor-immune interaction model.
+Source codes to simulate tumor growth in interaction with immune cell in a size and space structured tumor-immune interaction model and to perform sensitivity analysis of the stationary profile.
 
-# Program requirements
+- [System Requirements](#system-requirements)
+- [Organization of the code](#the-organization-of-the-code)
+- [Demo](#demo)
+- [License](#license)
+
+# System requirements
+## Hardware requirements
+THe source codes can be runned on a standard computer (in the case of the sensitivity analysis it can be beneficial to have enough cpus in order to be able to exploit the parallel computation )
+## Software requirements
+### OS requirements
+the source codes are supported by all OS
+
+### Python Dependencies 
 the following python version must be installed to run to source codes:
 - python 3.7
-
-# Python packages 
+the sources codes depend on the following Python packages
 - fipy (version 3.3)
 - gmsh (version 3.0.6)
 - scipy (version 1.5.3)
@@ -36,3 +47,11 @@ the following python version must be installed to run to source codes:
 4. The global sensitivity analysis of the tumor mass at equilibrium
 - the file `sensitivity_analysis_withRealParameters.py`
 - the file `sensitivity_analysis_results_postprocessing.py`
+
+# Demo
+## Instructions to run on data
+
+
+# License
+
+This project is covered under the **Apache 2.0 License**.
