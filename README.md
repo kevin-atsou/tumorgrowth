@@ -49,8 +49,8 @@ the sources codes depend on the following Python packages
 - the file `sensitivity_analysis_withRealParameters.py`
 - the file `sensitivity_analysis_results_postprocessing.py`
 
-# Demo
-## Instructions to run on data
+[comment]: <> (# Demo)
+[comment]: <> (## Instructions to run on data)
 
 
 # License
