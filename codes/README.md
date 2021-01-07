@@ -9,7 +9,7 @@ Source codes to simulate tumor growth in interaction with immune cell in a size 
 
 # System requirements
 ## Hardware requirements
-THe source codes can be runned on a standard computer (in the case of the sensitivity analysis it can be beneficial to have enough cpus in order to be able to exploit the parallel computation )
+The source codes can be runned on a standard computer (in the case of the sensitivity analysis it can be beneficial to have enough cpus in order to be able to exploit the parallel computation )
 ## Software requirements
 ### OS requirements
 the source codes are supported by all OS
@@ -48,8 +48,8 @@ the sources codes depend on the following Python packages
 - the file `sensitivity_analysis_withRealParameters.py`
 - the file `sensitivity_analysis_results_postprocessing.py`
 
-# Demo
-## Instructions to run on data
+[comment]: <> (# Demo)
+[comment]: <> (## Instructions to run on data)
 
 
 # License
