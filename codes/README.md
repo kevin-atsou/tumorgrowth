@@ -54,4 +54,4 @@ the sources codes depend on the following Python packages
 
 # License
 
-This project is covered under the **Apache 2.0 License**.
+This project is covered under the **GNU General Public License v3.0**.
