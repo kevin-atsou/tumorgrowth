@@ -55,4 +55,4 @@ the sources codes depend on the following Python packages
 
 # License
 
-This project is covered under the **GNU General Public License v3.0**.
+This project is covered under the **Creative Commons Zero v1.0 Universal**.
